@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>delete Files</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        <h1>Welcome {{user.username}} <a href="/logout/"><button>Выйти</button></a></h1>
+
+        <h3>Ваши файлы:</h3>
+        {{ message }}
+        <p>{% for file in files %}
+            <b>Creator:</b> {{ file.creator }}   <b>File:</b> {{ file.file }} <b>Data create:</b> {{ file.created_at }}
+            <blockquote><form method="post">{% csrf_token %}<a><button>Подтвердить удаление</button></a></form></blockquote>
+            {% endfor %}
+            <blockquote><a href="/menu/"><button>Назад</button></a></blockquote>
+    {% else %}
+        {{ message }}
+    {% endif %}
+</body>
+</html>

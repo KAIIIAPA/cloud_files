@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Files</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+    <h1>Welcome {{user.username}} <a href="/logout/"><button>Выйти</button></a></h1>
+        {% if user.is_staff %}
+                <a href="/admin/"><button>Админ панель</button></a>
+                <a href="/api/allfileslist/"><button>Панель API Files</button></a></blockquote>
+        {% else %}
+        {% endif %}
+        {{ message }}
+        <h3>Ваши файлы:</h3>
+        <p>{% for file in files %}
+            <b>Creator:</b> {{ file.creator }}   <b>File:</b> {{ file.file }} <b>Data create:</b> {{ file.created_at }}
+                <a href="{{ file.file.url }}"><button>Скачать</button></a>
+                <a href="/menu/{{ file.id }}"><button>Удалить</button></a><br><br>
+        {% endfor %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Добавить новые файлы:</h3>
+            <label for="file">Выберете файл: </label>
+            <input type="file" name="file" id="file" maxlength=1024*1024*2">
+            <button type="submit">Загрузить файл</button><br><br>
+        </form>
+        <!-- Загрузка и проверка файла -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (event) {
+                const file = document.querySelector('#file');
+                if (file && file.files && file.files[0]) {
+                    const fileSizeInBytes = file.files[0].size;
+                    if (fileSizeInBytes > 20971520) { // Ограничение в 20 МБ
+                        alert('Максимальный размер файла составляет 20 МБ. Пожалуйста, выберите меньший файл.');
+                        event.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
+    {% else %}
+        <a>Доступ запрещен, авторизуйтесь!</a>
+    {% endif %}
+</body>
+</html>

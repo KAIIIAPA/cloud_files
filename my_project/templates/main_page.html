@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>{{ message }}</h1>
+    <h2>Добро пожаловать!</h2>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-block">
+                <blockquote><label for="username">Логин</label>
+                <input id="username" type="text" name="username"></blockquote>
+            </div>
+
+            <div class="input-block">
+                <blockquote><label for="password">Пароль</label>
+                <input id="password" type="text" name="password"></blockquote>
+            </div>
+
+            <h1>{{ context }}</h1>
+
+            <div class="button_block">
+                <blockquote><button>Войти</button></blockquote>
+                <blockquote><button><a href="/registration/">Регистрация</a></button></blockquote>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
