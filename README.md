@@ -44,21 +44,22 @@
 Инструкция ориентирована на операционную систему windows и утилиту git bash.
 Для прочих инструментов используйте аналоги команд для вашего окружения.
 
-Клонируйте репозиторий и перейдите в него в командной строке:
-git clone https://github.com/KAIIIAPA/cloud_files.git
-Установите и активируйте виртуальное окружение
-python -m venv venv
-source venv/Scripts/activate
-Установите зависимости из файла requirements.txt
-pip install -r requirements.txt
+Клонируйте репозиторий и перейдите в него в командной строке: git clone https://github.com/KAIIIAPA/cloud_files.git
+
+Установите и активируйте виртуальное окружение: 
+  - python -m venv venv
+  - source venv/Scripts/activate
+
+Установите зависимости из файла requirements.txt:
+  - pip install -r requirements.txt
+    
 В папке с файлом manage.py выполните миграции:
-python manage.py migrate
-Создайте суперюзера, зайдите в админку
-python manage.py createsuperuser
+  - python manage.py migrate
+
+Создайте суперюзера, зайдите в админку:
+  - python manage.py createsuperuser
+    
 В папке с файлом manage.py запустите сервер, выполнив команду:
-python manage.py runserver
-
-
-python manage.py runserver
+  - python manage.py runserver
 
 Сервер будет запущен на локальном хосте по адресу http://127.0.0.1:8000.
