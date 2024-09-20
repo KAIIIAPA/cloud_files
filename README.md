@@ -1,4 +1,4 @@
-# Приложение для хранилища данных, в котором пользователи смогут загружать данные на сервер
+# Хранилище данных, в котором пользователи смогут загружать данные на сервер
 
 # Стек: python, Django, djangorestframework, MySQL, ORM, HTML
 
@@ -7,7 +7,7 @@
 - POST загрузка файла на сервер.
 - GET скачивание файла с сервера.
 
-![image](https://github.com/user-attachments/assets/b186688c-ee5c-43fd-b4d5-9e203fef79ef)
+![image](https://github.com/user-attachments/assets/24449db7-bb56-4d5f-af84-3d7641fef731)
 
   Дополнительно:
 - Также установлено ограничение (permissions) к данным API по роли пользователя (доступ только у роли admin)
