@@ -1,6 +1,7 @@
 # Хранилище данных, в котором пользователи смогут загружать данные на сервер
 
-# Стек: python, Django, djangorestframework, SQLite, ORM, HTML
+# Стек: 
+python, Django, djangorestframework, SQLite, ORM, HTML
 
 # Серверная часть:
   Реализован API c помощью DjangoREST framework для следующих действий (Маршрут http://127.0.0.1:8000/api/allfileslist/):
